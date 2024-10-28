@@ -1,0 +1,84 @@
+---
+import inter from "@fontsource-variable/inter/files/inter-latin-ext-wght-normal.woff2";
+
+interface Props {
+    title: string;
+    description?: string;
+    preloadImgLCP?: string;
+    canonical?: string;
+    image?: string;
+}
+
+const {
+    title,
+    description,
+    preloadImgLCP,
+    canonical,
+    image = "/img/og.jpg",
+} = Astro.props;
+
+const canonicalURL = canonical
+    ? new URL(canonical, Astro.site)
+    : new URL(Astro.url.pathname, Astro.site);
+
+const isProd = import.meta.env.PROD;
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+<link type="text/plain" rel="author" href="/humans.txt" />
+<link rel="preload" href={inter} as="font" type="font/woff2" crossorigin />
+
+{
+    preloadImgLCP && (
+        <link
+            rel="preload"
+            href={preloadImgLCP}
+            as="image"
+            type="image/webp"
+            crossorigin
+        />
+    )
+}
+
+<link
+    rel="icon"
+    type="image/svg+xml"
+    href={isProd ? "/favicon.svg" : "/favicon.svg"}
+/>
+
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+
+<link rel="canonical" href={canonicalURL} />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#6366F1" />
+
+<meta
+    name="keywords"
+    content="demo, system, async, managment, enterprise software"
+/>
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@demo" />
+<meta name="twitter:creator" content="@demoinc" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.site)} />
+
+<meta name="og:image" content={new URL(image, Astro.site)} />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content="https://demo.app" />
+<meta name="og:site_name" content="Demo" />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="en_EN" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<meta name="msapplication-config" content="/browserconfig.xml" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="sitemap" href="/sitemap-index.xml" />

@@ -1,0 +1,52 @@
+---
+import TabNext from "@components/common/header/Tab.astro";
+import MenuRight from "@components/common/header/menu.svelte";
+import Drawer from "@components/common/header/drawer.svelte";
+import { localizePathname } from "@shared/linking";
+import { languageTag } from "@paraglide/runtime";
+import Lang from "./lang.svelte";
+import { Separator } from "$lib/components/ui/separator";
+import { Icon } from 'astro-icon/components';
+---
+
+<nav
+    id="navbar"
+    class="flex flex-col sticky overflow-hidden w-full items-center top-0 backdrop-blur-lg z-40 antialiased dark:border-0"
+>
+    <div class="w-full max-w-screen-2xl">
+        <div class="mx-auto px-2 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center">
+                <div
+                    class="absolute inset-y-0 left-0 flex ml-2 items-center sm:hidden"
+                >
+                    <Drawer client:load>
+                        <Icon name="menu" title="Menu" slot="menu" size={24}/>
+                    </Drawer>
+                </div>
+                <div
+                    class="flex flex-1 items-center md:justify-left md:justify-left"
+                >
+                    <div class="sm:flex items-center pr-6 mx-auto sm:mx-0">
+                        <a
+                            href={localizePathname("/", languageTag())}
+                            class="text-2xl">Demo</a
+                        >
+                    </div>
+                    <!-- TAB MENU -->
+                    <TabNext />
+                </div>
+                <div
+                    class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-3 sm:min-w-0"
+                >
+                    <!-- LANGUAGE -->
+                    <span class="hidden md:block">
+                        <Lang client:load/>
+                    </span>
+                    <!-- MENU RIGHT -->
+                    <MenuRight client:load />
+                </div>
+            </div>
+        </div>
+    </div>
+    <Separator />
+</nav>

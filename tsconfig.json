@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "$lib/*": ["./src/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@components/*": ["src/components/*"],
+      "@shared/*": ["src/shared/*"],
+      "@styles/*": ["src/styles/*"],
+      "@paraglide/*": ["./src/paraglide/*"]
+    }
+  },
+  "exclude": ["src/paraglide", "node_modules/"],
+  "include": ["src", "astro.config.mjs", "astro.config.mjs"],
+  "extends": ["astro/tsconfigs/strict"]
+}
