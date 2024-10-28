@@ -130,4 +130,8 @@ dist
 .pnp.*
 
 # Personal
+.DS_Store
 .vercel
+bun.lockb
+pnpm-lock.yml
+package-lock.json
