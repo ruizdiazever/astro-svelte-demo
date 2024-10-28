@@ -10,7 +10,7 @@ import vercel from "@astrojs/vercel/serverless";
 import icon from "astro-icon";
 
 const adapter =
-  process.env.NODE_ENV === "production"
+  process.env.PRODUCTION === true
     ? vercel({
         webAnalytics: {
           enabled: true,
