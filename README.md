@@ -1,21 +1,20 @@
 # Demo
 
-Powered by Astro, Svelte and TailwindCSS
+Powered by Astro 5, Svelte 5 and TailwindCSS
+
+## Prerequisites
+
+- MacOS, GNU/Linux or WSL
+- [Docker](https://docs.docker.com/engine/install/) to run in container
+- [PNPM](https://pnpm.io/it/) to run in local
 
 ## 🧞 Commands
 
 ```bash
-# Basic
-bun i
-bun run build
-bun run dev
-
-# Scripts
-sh container.sh  # Build and run in container
-
-# Super
-ncu --upgrade    # To upgrade all packages
-npm outdated     # List of the situation xD
+sh run_local.sh      # Run in local
+sh run_container.sh  # Run in a container
+ncu --upgrade        # To upgrade all packages
+npm outdated         # List of the situation xD
 ```
 
 ## 🧞 Docs

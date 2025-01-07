@@ -134,4 +134,6 @@ dist
 .vercel
 bun.lockb
 pnpm-lock.yml
+pnpm-lock.yaml
 package-lock.json
+.astro
