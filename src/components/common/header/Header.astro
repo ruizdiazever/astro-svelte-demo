@@ -19,7 +19,7 @@ import { Icon } from 'astro-icon/components';
                 <div
                     class="absolute inset-y-0 left-0 flex ml-2 items-center sm:hidden"
                 >
-                    <Drawer client:load>
+                    <Drawer client:only>
                         <Icon name="menu" title="Menu" slot="menu" size={24}/>
                     </Drawer>
                 </div>
@@ -39,11 +39,10 @@ import { Icon } from 'astro-icon/components';
                     class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-3 sm:min-w-0"
                 >
                     <!-- LANGUAGE -->
-                    <span class="hidden md:block">
-                        <Lang client:load/>
-                    </span>
+                    <Lang client:only/>
+
                     <!-- MENU RIGHT -->
-                    <MenuRight client:load />
+                    <MenuRight client:only />
                 </div>
             </div>
         </div>
